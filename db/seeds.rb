@@ -10,6 +10,8 @@ other = Garden.create!(
   banner_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg"
 )
 
+Plant.destroy_all if Rails.env.development?
+
 Plant.create!(
   name: "Monstera",
   image_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/monstera.jpg",
@@ -27,3 +29,12 @@ Plant.create!(
   image_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/dieffenbachia.jpg",
   garden: other
 )
+
+Tag.destroy_all if Rails.env.development?
+
+names = %w[fruit\ tree greassy\ plant conifer flower]
+names.each do |name|
+  Tag.create!(name: name)
+end
+
+PlantTag.destroy_all if Rails.env.development?

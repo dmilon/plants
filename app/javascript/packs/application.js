@@ -4,4 +4,6 @@ require("channels")
 
 import { initSelect2 } from "../plugins/init_select2";
 
-initSelect2();
+document.addEventListener("turbolinks:load", () => {
+  initSelect2();
+});
